@@ -1,12 +1,25 @@
+import 'currency-flags/dist/currency-flags.css';
+
 interface ICardProps {
 	currency: string;
+	name: string;
 	rate: number;
 }
 
-const Card = ({ currency, rate }: ICardProps): JSX.Element => {
-
+const Card = ({ currency, name, rate }: ICardProps): JSX.Element => {
 	return (
-		<div className="Card">{currency}/AUD: {rate}</div>
+		<div className="Card">
+			<div className={`currency-flag currency-flag-${currency.toLowerCase()}`}></div>
+			<div>
+				{currency}<span>/AUD</span>
+			</div>
+			<div>
+				{name}
+			</div>
+			<div>
+				{rate}
+			</div>
+		</div>
 	);
 }
 
